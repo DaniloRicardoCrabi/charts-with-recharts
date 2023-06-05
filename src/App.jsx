@@ -1,17 +1,22 @@
 import { useState } from 'react' 
-import renderLineChart from './components/Charts/LineChart/LineChart'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import Home from './pages/Home.jsx';
+
+
 import './App.css'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div>
-        <main>
-        {renderLineChart}
-        </main>
-      </div>
-    </>
-  )
-}
+    <Router>
+      <Navbar />
+      <Sidebar />
+      <Routes>
+        <Route exact path="/" component={Home} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App
